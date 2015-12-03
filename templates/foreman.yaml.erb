@@ -1,0 +1,13 @@
+---
+# Update for your Foreman and Puppet master hostname(s)
+:url: "<%= @foreman_url %>"
+:ssl_ca: "<%= @ssl_ca %>"
+:ssl_cert: "<%= @ssl_cert %>"
+:ssl_key: "<%= @ssl_key %>"
+
+# Advanced settings
+:puppetdir: "<%= @puppetdir %>"
+:puppetuser: "<%= @puppetuser %>"
+:facts: <%= @fact_uploader_facts %>
+:timeout: <%= @fact_uploader_timeout %>
+:threads: <%= @fact_uploader_threads %>
