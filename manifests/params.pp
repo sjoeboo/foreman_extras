@@ -14,6 +14,6 @@ class foreman_extras::params {
   $fact_uploader_timeout        = 10
   $fact_uploader_threads        = 2
   $fact_uploader_cron_job       = true
-  $fact_uploader_cron_min       = '5'
+  $fact_uploader_cron_min       = 5
   $fact_uploader_cron_user      = 'root'
 }

@@ -1,9 +1,9 @@
 class foreman_extras::facts (
-    $config_path                = $foreman_extras::config_path,
-    $fact_uploader_dest_path    = $foreman_extras::fact_uploader_dest_path,
-    $fact_uploader_cron_job     = $foreman_extras::fact_uploader_cron_job,
-    $fact_uploader_cron_min     = $foreman_extras::fact_uploader_cron_min,
-    $fact_uploader_cron_user    = $foreman_extras::fact_uploader_cron_user
+    String $config_path                = $foreman_extras::config_path,
+    String $fact_uploader_dest_path    = $foreman_extras::fact_uploader_dest_path,
+    Boolean $fact_uploader_cron_job     = $foreman_extras::fact_uploader_cron_job,
+    Integer $fact_uploader_cron_min     = $foreman_extras::fact_uploader_cron_min,
+    String $fact_uploader_cron_user    = $foreman_extras::fact_uploader_cron_user
   ) {
 
     file {$fact_uploader_dest_path:
