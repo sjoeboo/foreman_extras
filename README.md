@@ -37,23 +37,74 @@ examples and code samples for doing things with your module.
 # Parameters
  As found in params.pp:
 
- ```foreman_url```  'https://foreman'
- ```config_path```  '/etc/puppetlabs/puppet/foreman.yaml'
- ```reports```  true
- ```report_processor_dest_path```  '/opt/puppetlabs/puppet/lib/ruby/vendor_ruby/puppet/reports/foreman.rb'
- ```ssl_ca``` '/etc/puppetlabs/puppet/ssl/certs/ca.pem'
- ```ssl_cert``` "/etc/puppetlabs/puppet/ssl/certs/${::fqdn}.pem"
- ```ssl_key```  "/etc/puppetlabs/puppet/ssl/private_keys/${::fqdn}.pem"
- ```puppetdir`` '/opt/puppetlabs/server/data/puppetserver/'
- ```puppetuser``` 'puppet'
- ```fact_uploader``` true
- ```fact_uploader_dest_path``` '/usr/local/bin/foreman_node_info.rb'
- ```fact_uploader_facts ``` true
-  ```fact_uploader_timeout ``` 10
-  ```fact_uploader_threads ``` 2
-  ```fact_uploader_cron_job ``` true
-  ```fact_uploader_cron_min ``` '5'
-  ```fact_uploader_cron_user ``` 'root'
+ ```foreman_url```
+ The url (http or https) where foreman can be reached.
+ Default: 'https://foreman'
+
+ ```config_path```
+ Path you'd like the config file for these scripts place. Directory must exist.
+ Default:  '/etc/puppetlabs/puppet/foreman.yaml'
+
+ ```reports```
+ Boolean, disable,enable the report processor (Note, this does NOT add the processor to the 'report' setting in puppet.conf. That is out of the scope of this module)
+ Default: true
+
+ ```report_processor_dest_path```
+ Path to install the report processor into. Varies with Puppetmaser/Puppetserver 1.0/Puppetserver 2.0
+ Default: '/opt/puppetlabs/puppet/lib/ruby/vendor_ruby/puppet/reports/foreman.rb'
+
+ ```ssl_ca```
+ Path to CA used to verify foreman https IF using https
+  Default: '/etc/puppetlabs/puppet/ssl/certs/ca.pem'
+
+ ```ssl_cert```
+  Path to cert used to verify foreman https IF using https
+  Default: "/etc/puppetlabs/puppet/ssl/certs/${::fqdn}.pem"
+
+ ```ssl_key```
+  Path to key used to verify foreman https IF using https
+  Default: "/etc/puppetlabs/puppet/ssl/private_keys/${::fqdn}.pem"
+
+ ```puppetdir```
+ Path to puppet data for the fact uploader to read.
+  Default:  '/opt/puppetlabs/server/data/puppetserver/'
+
+ ```puppetuser```
+ Local Puppet used
+ 'puppet'
+
+ ```fact_uploader```
+ Enable/Disable fact uploader
+ Default:  true
+
+ ```fact_uploader_dest_path```
+ Path to install fact uplaoding script to
+ Default:   '/usr/local/bin/foreman_node_info.rb'
+
+ ```fact_uploader_facts ```
+ Turns on fact uplaods in the config file
+ Default:  true
+
+ ```fact_uploader_timeout ```
+ Time out for attempting to upload facts, in seconds
+ Default:  10
+
+ ```fact_uploader_threads ```
+ Now many threads to run when uploading facts.
+ Default: 2
+
+ ```fact_uploader_cron_job ```
+ Boolean, toggles installation/removal of cronjob to upload facts
+  Default: true
+
+ ```fact_uploader_cron_min ```
+ How frequently, in minutes, to run the cron job ('5' = */5, etc)
+ Default:   '5'
+
+ ```fact_uploader_cron_user ```
+ User to install the cron job into
+ Default:  'root'
+
 
 ## Limitations
 
