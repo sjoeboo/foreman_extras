@@ -307,8 +307,10 @@ if __FILE__ == $0 then
       # if you use this option below, make sure that you don't send facts to foreman via the rake task or push facts alternatives.
       #
       if SETTINGS[:facts]
-        req = generate_fact_request certname, "#{puppetdir}/yaml/facts/#{certname}.yaml"
-        upload_facts(certname, req)
+        if File.exist? "#{puppetdir}/yaml/facts/#{certname}.yaml"
+          req = generate_fact_request certname, "#{puppetdir}/yaml/facts/#{certname}.yaml"
+          upload_facts(certname, req)
+        end
       end
       #
       # query External node
